@@ -1,5 +1,5 @@
 # ContactKeeper Backend
 
-Backend repositoy for ContactKeeper React application. Made with help and during course https://www.udemy.com/course/modern-react-front-to-back/
+Repositoy for ContactKeeper Node and React application. Contains backend server using Node.js, Express and MongoDB and UI made with React.js. 
 
-Using Node.js, Express and MongoDB. 
+Made with help and during course https://www.udemy.com/course/modern-react-front-to-back/ 
