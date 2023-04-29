@@ -66,11 +66,12 @@ const AuthState = props => {
         
         try {
             const response = await axios.post('/api/auth', formData, config);
+            localStorage.setItem('token', response.data.token);
             dispatch({
                 type: LOGIN_SUCCESS, 
                 payload: response.data
             });
-            loadUser();
+            await loadUser();
         } catch (error) {
             dispatch({
                 type: LOGIN_FAIL, 

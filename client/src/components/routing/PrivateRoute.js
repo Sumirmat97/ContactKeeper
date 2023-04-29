@@ -1,13 +1,24 @@
-import React, { useContext } from 'react'
-import { Navigate } from 'react-router-dom';
+import React, {  useContext, useEffect } from 'react'
+import { Navigate, Outlet } from 'react-router-dom';
 import AuthContext from '../../context/auth/AuthContext'
 
-const PrivateRoute = ({children}) => {
+const PrivateRoute = () => {
 
     const authContext = useContext(AuthContext);
-    const {isAuthenticated, loading} = authContext;
+    const {isAuthenticated, loading, loadUser} = authContext;
 
-    return (isAuthenticated && !loading ? <>{children}</> : <Navigate to="login" />);
+    useEffect(() => {
+        const fetchData = async () => {
+            await loadUser();
+        };
+        if(!isAuthenticated) {
+            fetchData(); 
+        }
+    }, 
+    // eslint-disable-next-line
+    []);
+
+    return (isAuthenticated && !loading ? <Outlet/> : <Navigate to="login" />);
 }
 
 export default PrivateRoute;

@@ -33,12 +33,12 @@ export const Login = () => {
         setUser({...user, [e.target.name]: e.target.value});
     } 
 
-    const onSubmit = e => {
+    const onSubmit = async (e) => {
         e.preventDefault();
         if(email === '' || password === '') {
             setAlert("Please enter value for all fields", "danger");
         } else {
-            login({email, password});
+            await login({email, password});
         }
     }
 
