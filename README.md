@@ -1,4 +1,4 @@
-# ContactKeeper Backend
+# ContactKeeper
 
 Repositoy for ContactKeeper Node and React application. Contains backend server using Node.js, Express and MongoDB and UI made with React.js. 
 
